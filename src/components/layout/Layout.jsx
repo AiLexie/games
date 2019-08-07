@@ -5,6 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Background from "./Background";
 
+import 'react-notifications/lib/notifications.css';
 import "./Layout.css";
 
 export default class Layout extends React.Component {

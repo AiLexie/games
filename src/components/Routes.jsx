@@ -35,6 +35,9 @@ import Planner from "./planner/Planner";
 import PlannerBuilds from "./planner/PlannerBuilds";
 import PrivacyPolicy from "./home/PrivacyPolicy";
 import About from "./home/About";
+import WikiOverview from "./wiki/WikiOverview";
+import AddArticle from "./wiki/AddArticle";
+import EditArticle from "./wiki/EditArticle";
 
 const routes = (
   <Switch>
@@ -45,6 +48,10 @@ const routes = (
 
     <Route path="/auth/login" component={Login} />
     <Route path="/auth/register" component={Register} />
+
+    <Route exact path="/wiki" component={WikiOverview} />
+    <Route path="/wiki/add" component={AddArticle} />
+    <Route path="/wiki/edit/:id" component={EditArticle} />
 
     <Route exact path="/database" component={Overview} />
     <Route exact path="/database/:table" component={TableOverview} />

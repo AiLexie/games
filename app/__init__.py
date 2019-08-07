@@ -9,6 +9,7 @@ from app.auth.api import register_auth_endpoints
 from app.database.api import register_database_endpoints
 from app.extensions import api, api_bp, db, guard
 from app.planner.api import register_planner_endpoints
+from app.wiki.api import register_wiki_endpoints
 from app.regex_converter import RegexConverter
 from app.utils import get_icon_and_name
 from config import DevelopmentConfig, ProductionConfig
@@ -55,6 +56,7 @@ def create_app(development=True):
     register_database_endpoints(api)
     register_auth_endpoints(api)
     register_planner_endpoints(api)
+    register_wiki_endpoints(api)
 
     # Register normal endpoints
     from app.update_server import update_server
@@ -78,7 +80,7 @@ def create_app(development=True):
     from app.auth.models import User
     guard.init_app(app, User)
 
-    # with app.app_context():
-    #    db.create_all()
+    with app.app_context():
+        db.create_all()
 
     return app
